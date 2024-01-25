@@ -1,4 +1,6 @@
-.dialogButton {
+.button {
+  all: unset;
+
   margin-top: 16px;
 
   background-color: var(--violet-9); /* Green */
@@ -13,5 +15,14 @@
   transition: transform 0.2s ease;
   &:active {
     transform: scale(0.95);
+  }
+
+  &:hover {
+    background-color: var(--violet-10);
+  }
+
+  &:focus {
+    outline: 2px solid;
+    outline-offset: 1px;
   }
 }
