@@ -4,7 +4,7 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import classes from "./Select.module.css";
-import { CheckIcon } from "lucide-react";
+import { CheckIcon, ChevronDownIcon } from "lucide-react";
 export const SelectRoot = SelectPrimitive.Root;
 
 export const SelectTrigger = forwardRef<
@@ -74,6 +74,19 @@ export const SelectScrollDownButton = forwardRef<
   );
 });
 
+export const SelectViewport = forwardRef<
+  HTMLDivElement,
+  SelectPrimitive.SelectViewportProps
+>(function SelectViewport({ className, ...props }, ref) {
+  return (
+    <SelectPrimitive.Viewport
+      className={clsx(classes.selectViewport, className)}
+      {...props}
+      ref={ref}
+    />
+  );
+});
+
 export const SelectSeparator = forwardRef<
   HTMLDivElement,
   SelectPrimitive.SelectSeparatorProps
@@ -86,6 +99,31 @@ export const SelectSeparator = forwardRef<
     />
   );
 });
+
+export const Select = ({
+  children,
+  container,
+  id,
+  ...props
+}: SelectPrimitive.SelectProps &
+  SelectPrimitive.SelectPortalProps & { id?: string }) => {
+  return (
+    <SelectRoot {...props}>
+      <SelectTrigger id={id}>
+        <SelectValue />
+        <SelectIcon>
+          <ChevronDownIcon size="14px" />
+        </SelectIcon>
+      </SelectTrigger>
+
+      <SelectPortal container={container}>
+        <SelectContent>
+          <SelectViewport>{children}</SelectViewport>
+        </SelectContent>
+      </SelectPortal>
+    </SelectRoot>
+  );
+};
 
 export const SelectOption = forwardRef<
   HTMLDivElement,

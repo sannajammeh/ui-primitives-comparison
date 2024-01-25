@@ -1,9 +1,6 @@
-import { Suspense } from "react";
 import { Container } from "../ui/Container";
 import classes from "./Header.module.css";
 import { Photo, SearchField } from "./SearchField";
-import { RadixAriaSwitch } from "./RadixAria";
-import { Navigation } from "./Navigation/Navigation";
 
 export const Header = async () => {
   const photos = (await fetch("http://localhost:3000/api/photos").then((res) =>
@@ -16,7 +13,7 @@ export const Header = async () => {
 
         {/* <Navigation /> */}
         <div className={classes.headerLeft}>
-          {/* <SearchField initialData={photos} /> */}
+          <SearchField initialData={photos} />
           {/* <RadixAriaSwitch /> */}
         </div>
       </Container>

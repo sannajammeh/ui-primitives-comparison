@@ -1,5 +1,8 @@
-.selectTrigger {
+.unset {
   all: unset;
+}
+
+.selectTrigger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -7,11 +10,12 @@
   padding: 0 15px;
   font-size: 13px;
   line-height: 1;
-  height: 35px;
+  height: 30px;
   gap: 5px;
   background-color: white;
   color: var(--violet-11);
-  box-shadow: 0 2px 10px var(--black-a3);
+  box-shadow: 0 2px 10px var(--black-a2);
+  border: 1px solid var(--violet-6);
 
   &:hover {
     background-color: var(--mauve-3);

@@ -11,7 +11,8 @@ export const SelectRoot = SelectPrimitive.Root;
 export const SelectViewport = SelectPrimitive.Viewport;
 export const SelectTrigger = classed(
   SelectPrimitive.Trigger,
-  styles.selectTrigger
+  styles.selectTrigger,
+  styles.unset
 );
 export const SelectValue = SelectPrimitive.Value;
 export const SelectIcon = classed(SelectPrimitive.Icon, styles.selectIcon);
@@ -39,11 +40,13 @@ export const SelectSeparator = classed(
 export const Select = ({
   children,
   container,
+  id,
   ...props
-}: SelectPrimitive.SelectProps & SelectPrimitive.SelectPortalProps) => {
+}: SelectPrimitive.SelectProps &
+  SelectPrimitive.SelectPortalProps & { id?: string }) => {
   return (
     <SelectRoot {...props}>
-      <SelectTrigger>
+      <SelectTrigger id={id}>
         <SelectValue />
         <SelectIcon>
           <ChevronDownIcon size="14px" />
@@ -81,3 +84,9 @@ export const SelectItem = forwardRef<
     </SelectPrimitive.Item>
   );
 });
+
+export const NativeSelect = classed(
+  "select",
+  styles.selectTrigger,
+  styles.native
+);

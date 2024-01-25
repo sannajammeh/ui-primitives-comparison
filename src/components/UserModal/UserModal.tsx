@@ -2,7 +2,7 @@
 
 import { Slot } from "@radix-ui/react-slot";
 import { useEffect, useRef, useState } from "react";
-import { Select, SelectItem } from "../ui/Select/Select.classed";
+import { NativeSelect, Select, SelectItem } from "../ui/Select/Select.classed";
 import styles from "./UserModal.module.css";
 import { Button } from "../ui/Button";
 export interface UserModalProps {
@@ -56,12 +56,24 @@ const UserModal = ({ children, asChild }: UserModalProps) => {
         <div style={{ width: 250 }}>
           <h2>Select user</h2>
 
-          <Select container={dialogRef.current} defaultValue="1">
+          <label htmlFor="select-1">Classed Select</label>
+          <Select id="select-1" container={dialogRef.current} defaultValue="1">
             <SelectItem value="1">Sanna</SelectItem>
             <SelectItem value="2">Filip</SelectItem>
             <SelectItem value="3">Alex</SelectItem>
             <SelectItem value="4">Kjetil</SelectItem>
           </Select>
+
+          <br />
+          <br />
+
+          <label htmlFor="default-select">Default Select</label>
+          <NativeSelect name="default-select" id="default-select">
+            <option value="1">Sanna</option>
+            <option value="2">Filip</option>
+            <option value="3">Alex</option>
+            <option value="4">Kjetil</option>
+          </NativeSelect>
 
           <div>
             <br />
