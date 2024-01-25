@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import { UserModal } from "@/components/UserModal";
 import { Button } from "@/components/ui/Button";
 
-const Home = () => {
+const Home = async () => {
   return (
     <Container>
       <Select defaultValue="1">

@@ -1,11 +1,12 @@
-/**
- * Classed
- */
-
 import { JSXElementConstructor, forwardRef } from "react";
 
 const merge = (arr: string[]) => arr.filter(Boolean).join(" ");
 
+/**
+ * Creates a a wrapper of the provided element and attaches
+ * the classNames provided.
+ * Provides full typescript support
+ */
 export function classed<
   T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>
 >(Component: T, ...classNames: string[]) {
@@ -24,7 +25,7 @@ export function classed<
   Inner.displayName =
     (Component as any).displayName ||
     (Component as any).name ||
-    "ClassedComponent";
+    (typeof Component === "string" ? Component : "ClassedComponent");
 
   return Inner;
 }
