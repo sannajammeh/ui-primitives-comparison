@@ -3,6 +3,9 @@
     background: color(display-p3 0 0 0 / 0.3);
   }
 
+  height: 60vh;
+  width: 60vw;
+
   background: white;
   border: none;
   border-radius: 6px;
@@ -12,5 +15,11 @@
     margin-bottom: 0.25rem;
     font-size: 14px;
     font-weight: 500;
+  }
+
+  & .content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
